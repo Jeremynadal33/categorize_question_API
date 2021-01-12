@@ -106,4 +106,21 @@ def display_uniques(array, horiz = False, figsize=(10,10), bins = 10, name = Non
         if save : plt.savefig(root_dir+name+'.png')
         plt.show()
         return counts
+    
+#function for ordering cluster numbers © richardnnamdi
+def order_cluster(cluster_field_name, target_field_name, df, ascending=True):
+    '''This function returns the given dataframe with the column cluster_field_name rearrange with 
+    ascending value of the target_field_name.'''
+    
+    #assert 'cluster_field_name' in df.columns, 'Careful, cluster_field_name isnot in df'
+    #assert 'target_field_name' in df.columns, 'Careful, target_field_name isnot in df'
+    
+    new_cluster_field_name = 'new_' + cluster_field_name
+    df_new = df.groupby(cluster_field_name)[target_field_name].mean().reset_index()
+    df_new = df_new.sort_values(by=target_field_name,ascending=ascending).reset_index(drop=True)
+    df_new['index'] = df_new.index
+    df_final = pd.merge(df,df_new[[cluster_field_name,'index']], on=cluster_field_name)
+    df_final = df_final.drop([cluster_field_name],axis=1)
+    df_final = df_final.rename(columns={"index":cluster_field_name})
+    return df_final
 
