@@ -1,0 +1,12 @@
+certifi==2020.12.5
+click==7.1.2
+Flask==1.1.2
+Flask-SQLAlchemy @ file:///home/conda/feedstock_root/build_artifacts/flask-sqlalchemy_1594747318500/work
+gunicorn @ file:///Users/runner/miniforge3/conda-bld/gunicorn_1610137017237/work
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe @ file:///opt/concourse/worker/volumes/live/fac44ebc-60de-4182-7f89-29bb8796c554/volume/markupsafe_1607027351541/work
+olefile==0.46
+Pillow @ file:///opt/concourse/worker/volumes/live/908c4bb7-c693-4f3a-5005-76a88fd03165/volume/pillow_1609786795096/work
+SQLAlchemy @ file:///Users/runner/miniforge3/conda-bld/sqlalchemy_1610127238914/work
+Werkzeug==1.0.1
